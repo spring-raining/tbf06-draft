@@ -23,9 +23,8 @@
     "gulp-pug": "^4.0.1",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-stylus": "^2.7.0",
-    "marked": "^0.6.1",
-    "node-prismjs": "^0.1.2",
     "pug": "^2.0.3",
+    "refractor": "^2.7.0",
     "ress": "^1.2.2",
     "viola-savepdf": "1.2.7"
   }
