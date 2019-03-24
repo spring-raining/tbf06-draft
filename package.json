@@ -1,0 +1,32 @@
+{
+  "name": "tbf06-draft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "spring-raining",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "gulp": "gulp",
+    "build": "savepdf -s JIS-B5 dest",
+    "preview": "savepdf --preview dest",
+    "watch": "gulp watch"
+  },
+  "dependencies": {
+    "@paperist/remark-latex": "^2.0.0",
+    "browser-sync": "^2.26.3",
+    "del": "^4.0.0",
+    "dewriteful": "^0.1.0",
+    "github-slugger": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-stylus": "^2.7.0",
+    "marked": "^0.6.1",
+    "node-prismjs": "^0.1.2",
+    "pug": "^2.0.3",
+    "ress": "^1.2.2",
+    "viola-savepdf": "1.2.7"
+  }
+}
