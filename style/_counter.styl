@@ -1,0 +1,90 @@
+body
+  counter-reset: section subsection fig tbl footnote cite
+
+a[data-ref="sec"]
+a[data-ref="subsec"]
+a[data-ref="fig"]
+a[data-ref="tbl"]
+a[data-ref="cite"]
+  text-decoration: none
+  color: inherit
+  margin: 0 .15em
+
+a[data-ref="sec"]::before
+  content: target-counter(attr(href url), section) '章'
+
+a[data-ref="subsec"]::before
+  content: target-counter(attr(href url), section) '.' target-counter(attr(href url), subsection) '章'
+
+a[data-ref="fig"]::before
+  content: '図' target-counter(attr(href url), fig)
+
+a[data-ref="tbl"]::before
+  content: '表' target-counter(attr(href url), tbl)
+
+a[data-ref="cite"]::before
+  content: '[' target-counter(attr(href url), cite) ']'
+
+nav#toc
+  li.section > a::before
+    content: target-counter(attr(href url), section) '.'
+    flex-basis: 2.8rem
+    min-width: 2.8rem
+
+  li.section > a::after,
+  li.subsection > a::after
+    content: target-counter(attr(href url), page, decimal)
+    font: $nombre-font
+    line-height: $body-line-height
+
+  li.subsection > a::before
+    content: target-counter(attr(href url), section) '.' target-counter(attr(href url), subsection) '.'
+    min-width: 3.4rem
+
+section
+  counter-increment: section
+  counter-reset: subsection
+
+  h2::before
+    content: counter(section) '. '
+
+  article
+    counter-increment: subsection
+    h3::before
+      content: counter(section) '.' counter(subsection) '. '
+
+figcaption.fig
+  counter-increment: fig
+  &::before
+    content: '図' counter(fig) ': '
+
+figcaption.tbl
+  counter-increment: tbl
+  &::before
+    content: '表' counter(tbl) ': '
+
+.footnote
+  counter-increment: footnote
+  &::footnote-call,
+  &::footnote-marker
+    content: counter(footnote)
+    vertical-align: super
+
+  &::footnote-call
+    font-size: 90%
+    margin: 0 .1rem
+
+  &::footnote-marker
+    margin-right: .2rem
+
+ol.cite-items
+  padding-left: 2rem
+  list-style: none
+
+  li
+    counter-increment: cite
+    position: relative
+    &::before
+      content: '[' counter(cite) '] '
+      position: absolute
+      left: -2rem

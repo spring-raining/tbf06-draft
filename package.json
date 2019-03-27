@@ -25,6 +25,7 @@
     "gulp-stylus": "^2.7.0",
     "pug": "^2.0.3",
     "refractor": "^2.7.0",
+    "rehype-raw": "^4.0.0",
     "ress": "^1.2.2",
     "viola-savepdf": "1.2.7"
   }

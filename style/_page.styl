@@ -1,0 +1,166 @@
+:root
+  font: $body-font
+  line-height: $body-line-height
+  color: #000000
+  word-break: normal
+  line-break: strict
+  overflow-wrap: break-word
+  // letter-spacing: 0.05em
+  // font-feature-settings: 'palt', 'pwid'
+
+strong
+  font: $heading-font
+  font-weight: 600
+  margin: 0 .2rem
+  letter-spacing: .015rem
+
+h1, h2, h3, h4, h5, h6
+  margin: 0
+  padding: 0
+  border-width: 0
+  font: $heading-font
+  line-height: $header-line-height
+
+h1, h2, h3
+  font-feature-settings: 'palt'
+
+h1
+  margin: $h1-margin
+  font-size: $h1-font-size
+
+h2
+  margin: $h2-margin
+  font-size: $h2-font-size
+
+h3
+  margin: $h3-margin
+  font-size: $h3-font-size
+
+h4
+  //margin-top: 3mm
+  margin: 0 0 .4rem 0
+  font-size: 110%
+
+
+ul, dl, pre
+  margin: .8em 0
+
+article, section
+  margin: $section-margin
+
+p
+  margin: $paragraph-margin
+  text-align: justify
+  text-indent: 1rem
+
+ul, ol
+  margin: 0 0 .8rem 0
+  padding-left: 3em
+  text-align: justify
+
+li:not(:last-child)
+  margin-bottom: .4rem
+
+hr
+  border: 0.5mm solid $color-code-bg
+  margin: 8px 0
+
+a, a:hover, a:focus, a:active, a:visited
+  color: $color-link-text
+  text-decoration: underline
+a:hover, a:focus, a:active
+  color: #ffffff
+  background-color: $color-link-text
+
+code, kbd, pre, samp
+  font-feature-settings: normal
+  letter-spacing: 0
+  font-family: $code-font-family
+
+dl
+  text-align: justify
+dt, dd
+  margin: 0
+  display: inline
+dt
+  font: $heading-font
+  font-weight: 600
+  margin-right: .8rem
+dd
+  margin: 0 0 8px 0
+  & > p
+    display: inherit
+dd + dt::before
+  content: '\A'
+  white-space: pre
+  line-height: 2.4
+  vertical-align: top
+
+figure
+  margin: 1.5rem auto
+  text-align: center
+  img
+    max-width: 100%
+    margin: ($image-margin / 2) auto
+  figcaption
+    margin: $image-margin auto
+    width: 90%
+    font-size: 90%
+    .footnote
+      font-size: 12px
+
+table
+  display: table
+  max-width: 100%
+  margin: $image-margin auto
+  border-color: #000000
+  border-collapse: collapse
+  tr.header
+    th
+      text-align: center
+  th, td
+    padding: 1mm 1mm 1mm 0
+    &:first-child
+      padding-left: 1mm
+    background-color: transparent
+    border: 0
+    // word-break: break-all
+  th
+    border-top: 1px solid #000000
+    border-bottom: 1px solid #000000
+  td
+    // border-bottom: .5px solid
+    $narrow-border-width = .4px
+    box-shadow: 0 $narrow-border-width+.3px 0 -.3px #000000
+  tr:last-child
+    border-bottom: 1px solid #000000
+
+code
+  padding: 0
+
+pre
+  position: relative
+  padding: .8em .8em
+  margin-left: -.8em
+  margin-right: -.8em
+  border: 0
+  background-color: $color-code-bg
+  line-height: $pre-line-height
+  white-space: pre-wrap
+  tab-size: 4
+  box-decoration-break: clone
+  word-spacing: normal
+  word-break: break-all
+
+.footnote
+  display: inline
+  float: footnote
+  font: $body-font
+  line-height: $body-line-height
+  font-size: 12px
+  text-align: left
+  text-indent: 0
+  word-break: break-all
+  overflow-wrap: break-word
+  // word-break: normal
+  line-break: strict

@@ -9,6 +9,7 @@ const parse = require('remark-parse');
 const mark2hype = require('remark-rehype');
 const frontmatter = require('remark-frontmatter');
 const format = require('rehype-format');
+const raw = require('rehype-raw');
 const stringify = require('rehype-stringify');
 const footnote = require('dewriteful/lib/packages/remark-footnote-in-place');
 const ruby = require('dewriteful/lib/packages/remark-ruby');
@@ -18,6 +19,7 @@ const rubyHandler = require('dewriteful/lib/mdast2hast-handlers/ruby');
 const latexPlugins = require('@paperist/remark-latex');
 const crossref = require('@paperist/remark-crossref');
 const crossReferenceHandler = require('./mdast2hast-handlers/crossReference');
+const imageHandler = require('./mdast2hast-handlers/image');
 const highlight = require('./highlight');
 
 const mdProcessor = unified()
@@ -32,12 +34,15 @@ const mdProcessor = unified()
   // .use(latexPlugins.plugins.MathPlugin)
   // .use(latexPlugins.plugins.TableCaptionPlugin)
   .use(mark2hype, {
+    allowDangerousHTML: true,
     handlers: {
       footnote: footnoteHandler,
       ruby: rubyHandler,
       crossReference: crossReferenceHandler,
+      image: imageHandler,
     },
   })
+  .use(raw)
   .use(format)
   .use(stringify)
   .freeze();
@@ -81,7 +86,7 @@ gulp.task('assets:delete', del.bind(null, ['dest/assets/**/*']));
 
 gulp.task('stylus', () => {
   gulp
-    .src('style/main.styl')
+    .src('style/**/[!_]*.styl')
     .pipe($.plumber(plumberOpt))
     .pipe($.sourcemaps.init())
     .pipe(
@@ -112,7 +117,7 @@ gulp.task('bs-reload', () => {
 });
 
 gulp.task('watch', ['default', 'browsersync'], () => {
-  gulp.watch('content/**/*.pug', ['pug']);
+  gulp.watch(['content/**/*.pug', 'content/**/*.md'], ['pug']);
   gulp.watch('content/assets/**/*', ['assets']);
   gulp.watch('style/**/*.styl', ['stylus']);
   gulp.watch('dest/*.html', ['bs-reload']);

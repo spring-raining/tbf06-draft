@@ -1,0 +1,90 @@
+@media screen
+  body
+    margin: auto 4rem
+    padding-bottom: 4rem
+    max-width: 960px
+
+  section
+    clear: both
+
+  figure
+    max-width: 600px
+
+  // nav#toc
+  //   position: fixed
+  //   background-color: #ffffff
+  //   top: 0
+  //   bottom: 0
+  //   left: 0
+  //   overflow-y: scroll
+  //   padding: 2rem 3rem
+  //   width: 240px
+  //   z-index: 1000
+
+  //   .toc-title
+  //     display: none
+
+  //   li > a:hover
+  //     background-color: rgba(0, 0, 0, 0.08)
+
+  // section#index
+  //   display: none
+
+  .footnote
+    vertical-align: super
+    background-color: rgba(214, 255, 0, 0.4)
+    margin: 0 .1rem
+
+  a[data-ref="sec"]
+  a[data-ref="subsec"]
+  a[data-ref="fig"]
+  a[data-ref="tbl"]
+  a[data-ref="cite"]
+    color: #bb0000
+    background-color: rgba(255, 0, 0, 0.3)
+  a[data-ref="sec"]::before
+    content: 'XXX 章'
+  a[data-ref="subsec"]::before
+    content: 'XXX.XXX 章'
+  a[data-ref="fig"]::before
+    content: '図 XXX'
+  a[data-ref="tbl"]::before
+    content: '表 XXX'
+  a[data-ref="cite"]::before
+    content: '[XXX]'
+
+@media print
+  :root
+    widows: 3
+    orphans: 3
+    hyphens: auto
+
+  h1, h2, h3, h4, h5, h6
+    break-after: avoid
+
+  tr, th, td
+    break-inside: avoid
+
+@page
+  size: $page-width $page-height
+  margin-top: $page-margin-top
+  margin-bottom: $page-margin-bottom
+
+  @bottom-center
+    content: counter(page)
+    font: $nombre-font
+    color: black
+
+@page :left
+  margin-left: $page-margin-outer
+  margin-right: $page-margin-inner
+
+@page :right
+  margin-left: $page-margin-inner
+  margin-right: $page-margin-outer
+
+@page :first
+  margin-left: $page-margin-outer
+
+  @bottom-center
+    content: ''
