@@ -1,24 +1,28 @@
 :root
-  font: $body-font
+  font-family: $body-font-family
+  font-weight: $body-font-weight
+  font-size 15px
   line-height: $body-line-height
   color: #000000
   word-break: normal
   line-break: strict
   overflow-wrap: break-word
-  // letter-spacing: 0.05em
+  letter-spacing: $body-letter-spacing
   // font-feature-settings: 'palt', 'pwid'
 
 strong
-  font: $heading-font
+  font-family: $heading-font-family
   font-weight: 600
   margin: 0 .2rem
-  letter-spacing: .015rem
+  letter-spacing: $heading-letter-spacing
 
 h1, h2, h3, h4, h5, h6
   margin: 0
   padding: 0
   border-width: 0
-  font: $heading-font
+  font-family: $heading-font-family
+  font-weight: $heading-font-weight
+  letter-spacing: $heading-letter-spacing
   line-height: $header-line-height
 
 h1, h2, h3
@@ -37,10 +41,8 @@ h3
   font-size: $h3-font-size
 
 h4
-  //margin-top: 3mm
-  margin: 0 0 .4rem 0
-  font-size: 110%
-
+  margin: $h4-margin
+  font-size: $h4-font-size
 
 ul, dl, pre
   margin: .8em 0
@@ -107,7 +109,7 @@ figure
     width: 90%
     font-size: 90%
     .footnote
-      font-size: 12px
+      font-size: 75%
 
 table
   display: table
@@ -152,15 +154,42 @@ pre
   word-spacing: normal
   word-break: break-all
 
+*:not(pre) > code
+  color: $color-inlinecode-text
+  font-weight: 400
+  margin: 0 0.2em
+  padding: 0.1em 0.5em
+  border: 0
+  border-radius: 0.2em
+  background-color: $color-inlinecode-bg
+
 .footnote
   display: inline
   float: footnote
   font: $body-font
   line-height: $body-line-height
-  font-size: 12px
+  font-size: 75%
   text-align: left
   text-indent: 0
   word-break: break-all
   overflow-wrap: break-word
   // word-break: normal
   line-break: strict
+
+//
+//  Document specific styles
+//
+
+article h1:first-of-type
+  display: inline-block
+  word-break: keep-all
+  margin: -10000px 0 1.5rem -1.6rem
+  padding: 10000px 1.6rem .6rem 1.6rem
+  border: 1px solid
+
+.draft-author
+  text-align: right
+  margin-bottom: .4rem
+
+figure img
+  image-resolution: 150dpi

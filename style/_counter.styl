@@ -67,8 +67,7 @@ figcaption.tbl
   counter-increment: footnote
   &::footnote-call,
   &::footnote-marker
-    content: counter(footnote)
-    vertical-align: super
+    content: '[' counter(footnote) ']'
 
   &::footnote-call
     font-size: 90%

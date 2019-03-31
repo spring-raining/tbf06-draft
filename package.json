@@ -7,8 +7,8 @@
   "private": true,
   "scripts": {
     "gulp": "gulp",
-    "build": "savepdf -s JIS-B5 dest",
-    "preview": "savepdf --preview dest",
+    "build": "savepdf --book -s JIS-B5 dest",
+    "preview": "savepdf --book --preview dest",
     "watch": "gulp watch"
   },
   "dependencies": {

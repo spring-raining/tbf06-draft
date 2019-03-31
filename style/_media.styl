@@ -58,6 +58,7 @@
     widows: 3
     orphans: 3
     hyphens: auto
+    font-size: $master-font-size-for-print
 
   h1, h2, h3, h4, h5, h6
     break-after: avoid
@@ -70,21 +71,68 @@
   margin-top: $page-margin-top
   margin-bottom: $page-margin-bottom
 
-  @bottom-center
-    content: counter(page)
-    font: $nombre-font
-    color: black
+  // for publishing output
+  // bleed: $page-bleed
+  // marks: crop cross
+
+  page-top-style()
+    content: ''
+    margin-bottom: 8mm
+    // border-bottom: 1px solid
+    background-color: #000000
+
+  @top-left-corner
+    page-top-style()
+  @top-center
+    page-top-style()
+    margin-left: -1mm
+    margin-right: -1mm
+    padding-left: 1mm
+    padding-right: 1mm
+  @top-right-corner
+    page-top-style()
 
 @page :left
   margin-left: $page-margin-outer
   margin-right: $page-margin-inner
 
+  @top-center
+    content: env(pub-title)
+    font: $nombre-font
+    color: #ffffff
+    text-align: left
+    padding-top: 8mm
+  @bottom-left
+    content: counter(page)
+    font: $nombre-font
+    border-left: 1px solid
+    margin-top: 12mm
+    margin-left: -6mm
+    padding: 0 6mm
+
 @page :right
   margin-left: $page-margin-inner
   margin-right: $page-margin-outer
 
+  @top-center
+    content: env(doc-title)
+    font: $nombre-font
+    color: #ffffff
+    text-align: right
+    padding-top: 8mm
+  @bottom-right
+    content: counter(page)
+    font: $nombre-font
+    border-right: 1px solid
+    margin-top: 12mm
+    margin-right: -6mm
+    padding: 0 6mm
+
 @page :first
   margin-left: $page-margin-outer
 
-  @bottom-center
+  @bottom-left
+  @bottom-right
+  @top-left
+  @top-right
     content: ''
