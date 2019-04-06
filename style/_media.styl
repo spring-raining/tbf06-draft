@@ -69,11 +69,11 @@
 @page
   size: $page-width $page-height
   margin-top: $page-margin-top
-  margin-bottom: $page-margin-bottom
+  margin-bottom: $page-margin-bottom - 6mm
 
   // for publishing output
-  // bleed: $page-bleed
-  // marks: crop cross
+  bleed: $page-bleed
+  marks: crop cross
 
   page-top-style()
     content: ''
@@ -83,14 +83,36 @@
 
   @top-left-corner
     page-top-style()
+    margin-top: - $page-bleed
+    margin-left: - $page-bleed
   @top-center
     page-top-style()
+    margin-top: - $page-bleed
     margin-left: -1mm
     margin-right: -1mm
     padding-left: 1mm
     padding-right: 1mm
   @top-right-corner
     page-top-style()
+    margin-top: - $page-bleed
+    margin-right: - $page-bleed
+
+  @bottom-left-corner
+    content:''
+    margin-top: 15mm
+    margin-bottom: - $page-bleed
+    margin-left: - $page-bleed
+    // margin-right: -1q
+    background-color: white
+    z-index: 1000
+  @bottom-right-corner
+    content: ''
+    margin-top: 15mm
+    margin-bottom: - $page-bleed
+    margin-right: - $page-bleed
+    // margin-left: -1q
+    background-color: white
+    z-index: 1000
 
 @page :left
   margin-left: $page-margin-outer
@@ -101,14 +123,15 @@
     font: $nombre-font
     color: #ffffff
     text-align: left
-    padding-top: 8mm
+    padding-top: 12mm
   @bottom-left
     content: counter(page)
     font: $nombre-font
     border-left: 1px solid
-    margin-top: 12mm
-    margin-left: -6mm
-    padding: 0 6mm
+    margin-top: 15mm
+    margin-bottom: - $page-bleed
+    padding: 0 4mm 15mm 4mm
+    background-color: white
 
 @page :right
   margin-left: $page-margin-inner
@@ -119,20 +142,30 @@
     font: $nombre-font
     color: #ffffff
     text-align: right
-    padding-top: 8mm
+    padding-top: 12mm
   @bottom-right
     content: counter(page)
     font: $nombre-font
     border-right: 1px solid
-    margin-top: 12mm
-    margin-right: -6mm
-    padding: 0 6mm
+    margin-top: 15mm
+    margin-bottom: - $page-bleed
+    padding: 0 4mm 15mm 4mm
+    background-color: white
 
 @page :first
   margin-left: $page-margin-outer
 
   @bottom-left
+    content: ''
   @bottom-right
+    content: ''
   @top-left
+    content: ''
   @top-right
     content: ''
+
+// style for footnote top borders
+@-adapt-footnote-area ::before
+  margin-inline-start: -1000px
+  margin-inline-end: 70%
+  margin-block-end: .8em

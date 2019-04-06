@@ -57,9 +57,13 @@ p
 
 ul, ol
   margin: 0 0 .8rem 0
-  padding-left: 3em
+  padding-left: 1.4rem
   text-align: justify
+ul p, ol p
+  text-indent: 0
 
+ol > li
+  padding-left: .8rem
 li:not(:last-child)
   margin-bottom: .4rem
 
@@ -142,9 +146,9 @@ code
 
 pre
   position: relative
-  padding: .8em .8em
-  margin-left: -.8em
-  margin-right: -.8em
+  padding: .8em 1.2em
+  margin-left: -1em
+  marign-right: -1em
   border: 0
   background-color: $color-code-bg
   line-height: $pre-line-height
@@ -189,7 +193,116 @@ article h1:first-of-type
 
 .draft-author
   text-align: right
-  margin-bottom: .4rem
+  margin-bottom: 1.2rem
+  &::before
+    content: '文 ● '
 
-figure img
-  image-resolution: 150dpi
+.code-title
+  font-size: 100%
+  border-left: 1px solid
+  margin-top: .8rem
+  margin-bottom: -0.8rem
+  padding: .6rem 1rem .4rem
+pre + .code-title
+  margin-top: 2rem
+
+.multifig
+  margin: 0 -1.2rem
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: flex-end
+  & > *
+    margin-left: 1.2rem
+    margin-right: 1.2rem
+
+.page-break
+  width: 0
+  height: 0
+  page-break-after: always
+
+@media print
+  .float-bottom
+    float: inline-end
+    float-reference: page
+    margin-right: -12mm
+    margin-left: 12mm
+
+figure
+  img[src$='.png']
+  img[src$='.jpg']
+  img[src$='.jpeg']
+    image-resolution: 150dpi
+  img[src='/assets/arinoth/sshot-5.png']
+    image-resolution: 250dpi
+  img[src='/assets/takanakahiko/26VaZnc.png']
+    image-resolution: 290dpi
+  img[src='/assets/yamasy/265cbb0c-2e44-46c8-a31b-ee0018749c12.png']
+  img[src='/assets/yamasy/b272dc5d-ebb9-4559-988f-b819a58b33cd.png']
+    border: 1px solid
+    image-resolution: 400dpi
+  img[src='/assets/yamasy/63bc6435-c7fd-4ded-8ea9-309165024c1b.png']
+    image-resolution: 300dpi
+  img[src='/assets/shinyu/settings_panel.png']
+    image-resolution: 200dpi
+  img[src='/assets/shinyu/marks_bleed.png']
+  img[src='/assets/shinyu/bleed_photo.png']
+    image-resolution: 200dpi
+
+section#profile
+  .author
+    display: flex
+    margin: 2rem 0
+    img
+      margin: 0 10px 8px 0
+      width: 60px
+      height: 60px
+      border-radius: 30px
+
+  code > i
+    vertical-align: -.03em
+    margin-right: .4em
+
+  .profile
+    flex-grow: 1
+    h4
+      display: inline-block
+      margin: 0 0 4px
+
+section#colophon
+  position: relative
+  float-reference: page
+  float: bottom
+  margin-bottom: 0
+
+  ul.editions
+    padding: 0
+    list-style: none
+    time
+      display: inline-block
+      width: 10em
+
+  .title
+    color: #000000
+
+  table.info
+    margin: 0
+    width: 100%
+    border-top: 2px solid #000000
+    tr:last-child
+      border-bottom: 1px solid #000000
+    td
+      vertical-align: top
+      border: 0
+      box-shadow: none
+      padding-left: 0
+
+  .download-pass
+    position: absolute
+    right: 0
+    bottom: 0
+    padding: 0.1em 0.5em
+    font-weight: 400
+    color: #ffffff
+    background-color: #000000
+    border-radius: 0.2em

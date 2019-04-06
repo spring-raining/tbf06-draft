@@ -12,6 +12,7 @@
     "watch": "gulp watch"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "@paperist/remark-latex": "^2.0.0",
     "browser-sync": "^2.26.3",
     "del": "^4.0.0",

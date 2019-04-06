@@ -45,13 +45,13 @@ section
   counter-increment: section
   counter-reset: subsection
 
-  h2::before
-    content: counter(section) '. '
+  // h2::before
+  //   content: counter(section) '. '
 
   article
     counter-increment: subsection
-    h3::before
-      content: counter(section) '.' counter(subsection) '. '
+    // h3::before
+    //   content: counter(section) '.' counter(subsection) '. '
 
 figcaption.fig
   counter-increment: fig
@@ -70,8 +70,8 @@ figcaption.tbl
     content: '[' counter(footnote) ']'
 
   &::footnote-call
-    font-size: 90%
-    margin: 0 .1rem
+    font-size: 80%
+    margin: 0 .3rem
 
   &::footnote-marker
     margin-right: .2rem
