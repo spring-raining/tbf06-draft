@@ -147,7 +147,7 @@ code
 pre
   position: relative
   padding: .8em 1.2em
-  margin-left: -1em
+  margin-left: 0
   marign-right: -1em
   border: 0
   background-color: $color-code-bg
@@ -183,6 +183,59 @@ pre
 //
 //  Document specific styles
 //
+
+// .toc-header
+//   margin-bottom: 2rem
+
+nav#toc
+  font-size: 120%
+  ol
+    padding: 0
+  li
+    display: flex
+    margin: 0 0 3rem -10000px
+    padding: 0 0 0 10000px
+    min-height: 5rem
+    list-style: none
+    border-bottom: 1px solid #bbbbbb
+  li > a
+    display: inline-flex
+    width: 100%
+    flex: 1
+    text-decoration: none
+    justify-content: space-between
+    align-items: flex-end
+  // li > a::before
+  //   content: ''
+  //   flex: 1
+  //   order: 1
+  //   border-bottom: 1px dashed
+  // li > a::after
+  //   order: 2
+
+  .title
+    font-size: 160%
+    text-align: left
+    line-height: 1.4
+    word-break: keep-all
+    font-feature-settings: 'palt'
+  // .arinoth .title
+  //   font-family: 'UD Shin Go NT'
+  //   font-weight: 800
+  // .takanakahiko .title
+  //   font-family: 'Gothic MB101'
+  //   font-weight: 700
+  // .yamasy .title
+  //   font-family: 'Hiragino UD Sans Rd'
+  //   font-size: 175%
+  //   font-weight: 600
+  // .spring_raining .title
+  //   font-family: 'Ten Mincho Text'
+  //   font-size: 175%
+  //   font-weight: 400
+  // .shinyu .title
+  //   font-family: 'TBUDGothic'
+  //   font-weight: 800
 
 article h1:first-of-type
   display: inline-block
@@ -222,6 +275,9 @@ pre + .code-title
   page-break-after: always
 
 @media print
+  nav#toc a
+    color: #000000
+
   .float-bottom
     float: inline-end
     float-reference: page
@@ -245,6 +301,8 @@ figure
     image-resolution: 300dpi
   img[src='/assets/shinyu/settings_panel.png']
     image-resolution: 200dpi
+  img[src='/assets/shinyu/toc_panel.png']
+    image-resolution: 170dpi
   img[src='/assets/shinyu/marks_bleed.png']
   img[src='/assets/shinyu/bleed_photo.png']
     image-resolution: 200dpi

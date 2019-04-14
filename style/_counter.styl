@@ -11,35 +11,23 @@ a[data-ref="cite"]
   margin: 0 .15em
 
 a[data-ref="sec"]::before
-  content: target-counter(attr(href url), section) '章'
+  content: target-counter(attr(href), section) '章'
 
 a[data-ref="subsec"]::before
-  content: target-counter(attr(href url), section) '.' target-counter(attr(href url), subsection) '章'
+  content: target-counter(attr(href), section) '.' target-counter(attr(href url), subsection) '章'
 
 a[data-ref="fig"]::before
-  content: '図' target-counter(attr(href url), fig)
+  content: '図' target-counter(attr(href), fig)
 
 a[data-ref="tbl"]::before
-  content: '表' target-counter(attr(href url), tbl)
+  content: '表' target-counter(attr(href), tbl)
 
 a[data-ref="cite"]::before
-  content: '[' target-counter(attr(href url), cite) ']'
+  content: '[' target-counter(attr(href), cite) ']'
 
 nav#toc
-  li.section > a::before
-    content: target-counter(attr(href url), section) '.'
-    flex-basis: 2.8rem
-    min-width: 2.8rem
-
-  li.section > a::after,
-  li.subsection > a::after
-    content: target-counter(attr(href url), page, decimal)
-    font: $nombre-font
-    line-height: $body-line-height
-
-  li.subsection > a::before
-    content: target-counter(attr(href url), section) '.' target-counter(attr(href url), subsection) '.'
-    min-width: 3.4rem
+  li > a::after
+    content: target-counter(attr(href), page, decimal)
 
 section
   counter-increment: section

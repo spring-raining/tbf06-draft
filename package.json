@@ -28,6 +28,7 @@
     "refractor": "^2.7.0",
     "rehype-raw": "^4.0.0",
     "ress": "^1.2.2",
-    "viola-savepdf": "1.2.7"
+    "viola-savepdf": "1.2.7",
+    "vivliostyle": "^2019.1.104-pre.20190408115959"
   }
 }
