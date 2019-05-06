@@ -1,8 +1,6 @@
 node_modules/
 yarn.lock
 
-/content
 /dest
-/sample.tex
 *.pdf
 /.vscode
