@@ -8,7 +8,8 @@ npm install (or) yarn install
 
 ### HTML/CSSビルド
 
-原稿保存ディレクトリ（`content/`）はgitリポジトリから省いています。「Vivliostyleで本を作ろう Vol.1」を購入し、電子版データを入手することで本は完成します。（宣伝）
+~~原稿保存ディレクトリ（`content/`）はgitリポジトリから省いています。「Vivliostyleで本を作ろう Vol.1」を購入し、電子版データを入手することで本は完成します。（宣伝）~~
+原稿コンテンツを公開しました！ プレビューはこちらから→ https://github.com/vivliostyle/vivliostyle_doc/tree/gh-pages/ja/vivliostyle-user-group-vol1
 
 ```
 npm run gulp (or) yarn gulp
